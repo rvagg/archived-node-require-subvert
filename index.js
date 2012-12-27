@@ -39,6 +39,7 @@ RequireSubvert.prototype.cleanUp = function() {
   this._requires.forEach(function (path) {
     delete require.cache[path]
   })
+  this._requires = []
 }
 
 RequireSubvert.prototype._fix = function(name) {
