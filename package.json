@@ -1,7 +1,7 @@
 {
     "name"            : "require-subvert"
   , "description"     : "Simple require() subversion for mocking and stubbing"
-  , "version"         : "0.0.2"
+  , "version"         : "0.0.3"
   , "homepage"        : "https://github.com/rvagg/node-require-subvert"
   , "authors"         : [
         "Rod Vagg @rvagg <rod@vagg.org> (https://github.com/rvagg)"
