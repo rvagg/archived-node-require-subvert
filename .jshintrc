@@ -24,7 +24,6 @@
   , "laxcomma": true
   , "proto": true
   , "expr": true
-  , "es5": true
   , "strict": false
   , "onevar": true
 }

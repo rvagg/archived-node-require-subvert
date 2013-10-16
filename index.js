@@ -43,7 +43,7 @@ RequireSubvert.prototype.cleanUp = function() {
 }
 
 RequireSubvert.prototype._fix = function(name) {
-  if (/^[\/\.]/.test(name))
+  if (/^\./.test(name))
     return _path.join(this._dir, name)
   return name
 }
