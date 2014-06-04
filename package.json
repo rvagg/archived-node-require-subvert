@@ -1,19 +1,23 @@
 {
-    "name"            : "require-subvert"
-  , "description"     : "Simple require() subversion for mocking and stubbing"
-  , "version"         : "0.0.3"
-  , "homepage"        : "https://github.com/rvagg/node-require-subvert"
-  , "authors"         : [
-        "Rod Vagg @rvagg <rod@vagg.org> (https://github.com/rvagg)"
-    ]
-  , "keywords"        : ["require", "mock", "test"]
-  , "main"            : "./index.js"
-  , "repository"      : {
-        "type"            : "git"
-      , "url"             : "https://github.com/rvagg/node-require-subvert.git"
-    }
-  , "scripts": {
-        "test"        : "node ./tests/"
-    }
-  , "license"         : "MIT"
+  "name": "require-subvert",
+  "description": "Simple require() subversion for mocking and stubbing",
+  "version": "0.1.0",
+  "homepage": "https://github.com/rvagg/node-require-subvert",
+  "authors": [
+    "Rod Vagg @rvagg <rod@vagg.org> (https://github.com/rvagg)"
+  ],
+  "keywords": [
+    "require",
+    "mock",
+    "test"
+  ],
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rvagg/node-require-subvert.git"
+  },
+  "scripts": {
+    "test": "node ./tests/"
+  },
+  "license": "MIT"
 }
