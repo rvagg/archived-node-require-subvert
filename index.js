@@ -32,6 +32,9 @@ RequireSubvert.prototype.require = function(name) {
 }
 
 RequireSubvert.prototype.cleanUp = function() {
+  // if we don't do it backwards, modules that have been subverted multiple
+  // times will not get their originals properly.
+  this._replacements.reverse();
   this._replacements.forEach(function (replacement) {
     require.cache[replacement.path].exports = replacement.original
   })
