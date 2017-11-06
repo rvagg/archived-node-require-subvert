@@ -1,4 +1,5 @@
 var _path = require('path')
+var _fs = require('fs')
 
 function RequireSubvert (dir) {
   if (!(this instanceof RequireSubvert)) return new RequireSubvert(dir)
@@ -9,13 +10,23 @@ function RequireSubvert (dir) {
 
 RequireSubvert.prototype.subvert = function(name, replacement) {
   name = this._fix(name)
-  require(name)
 
   var path     = require.resolve(name)
     , original = require.cache[path]
 
-  if (!original) throw new Error('No such module: ' + name)
-  original = original.exports
+  if (original){
+    original = original.exports
+  } 
+  else {
+    if(!_fs.existsSync(path)) {
+      throw new Error('No such module: ' + name)
+    }
+
+    // this seems to work just fine for plain old require, however 
+    // if other things are accessed off cache it will be a problem
+    require.cache[path] = {} 
+  }
+
   require.cache[path].exports = replacement
   this._replacements.push({
       path     : path
@@ -36,7 +47,12 @@ RequireSubvert.prototype.cleanUp = function() {
   // times will not get their originals properly.
   this._replacements.reverse()
   this._replacements.forEach(function (replacement) {
-    require.cache[replacement.path].exports = replacement.original
+    if(replacement.original){
+      require.cache[replacement.path].exports = replacement.original
+    }
+    else{
+      delete require.cache[replacement.path]
+    }
   })
   this._replacements = []
   this._requires.forEach(function (path) {
